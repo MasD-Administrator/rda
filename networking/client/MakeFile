@@ -1,0 +1,21 @@
+
+CXX = g++
+
+# 1. Removed -flto from here
+CXXFLAGS = -std=c++11 -I. -I. -Os -DNDEBUG
+
+# 2. Removed -flto from here, but KEEP -s
+LDFLAGS = -s
+
+LIBS = -lglfw3 -lopengl32 -lgdi32 -lws2_32
+
+SRCS = client.cpp
+
+TARGET = client 
+# aahhh comments on  work in new lines
+# anywy add -mwindows for no console
+all:
+	$(CXX) $(CXXFLAGS) $(SRCS) $(LDFLAGS) $(LIBS) -o $(TARGET) 
+
+clean:
+	rm -f $(TARGET).exe
